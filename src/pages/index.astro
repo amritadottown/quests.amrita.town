@@ -1,0 +1,88 @@
+---
+import '../styles/style.css';
+import '../styles/quests.css';
+import { getCollection } from 'astro:content';
+
+const quests = await getCollection('quests');
+
+const unclaimed = quests
+	.filter((q) => q.data.status === 'unclaimed')
+	.sort((a, b) => a.data.order - b.data.order);
+
+const completed = quests
+	.filter((q) => q.data.status === 'completed')
+	.sort((a, b) => a.data.order - b.data.order);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="cool ideas that the amrita.town community wants to see built — unclaimed quests and completed projects, by the community for the community." />
+		<meta name="generator" content={Astro.generator} />
+		<title>quests.amrita.town</title>
+	</head>
+	<body>
+		<a href="https://amrita.town" class="back-button">← amrita.town</a>
+
+		<header class="quest-header">
+			<img src="/favicon.png" alt="quests logo" class="quest-logo" width="64" height="64" />
+			<div>
+				<h1>quests</h1>
+				<p class="tagline">brought to you by the folks at <a href="https://amrita.town">amrita.town</a>.</p>
+			</div>
+		</header>
+
+		<p>
+			quests are cool ideas that the amrita.town community wants to see built. they are
+			for the community, by the community — so anyone can pitch in, or get in touch to
+			work on one deeper.
+		</p>
+
+		<h2>unclaimed quests</h2>
+
+		<div class="quest-grid">
+			{unclaimed.map((q) => (
+				<div class="card quest-card">
+					<h3>{q.data.name}</h3>
+					<p class="quest-blurb">{q.body}</p>
+					<div class="quest-meta">
+						<span class="chip unclaimed">unclaimed</span>
+						{q.data.site && <a href={q.data.site}>site</a>}
+						{q.data.repo && <a href={q.data.repo}>repo</a>}
+					</div>
+				</div>
+			))}
+		</div>
+
+		<h2>completed quests</h2>
+
+		<div class="quest-grid">
+			{completed.map((q) => (
+				<div class="card quest-card">
+					<h3>{q.data.name}</h3>
+					<p class="quest-blurb">{q.body}</p>
+					<div class="quest-meta">
+						<span class="chip completed">completed</span>
+						{q.data.site && <a href={q.data.site}>site</a>}
+						{q.data.repo && <a href={q.data.repo}>repo</a>}
+					</div>
+				</div>
+			))}
+		</div>
+
+		<footer class="quest-footer">
+			<p>
+				<strong>open quests</strong>: {unclaimed.length}
+				<span aria-hidden="true"> · </span>
+				<strong>done</strong>: {completed.length}
+			</p>
+			<p>
+				want to claim a quest, pitch in, or add a new one? open an issue or a pr
+				in the <a href="https://github.com/amritadottown">amritadottown</a> org on github.
+			</p>
+		</footer>
+	</body>
+</html>

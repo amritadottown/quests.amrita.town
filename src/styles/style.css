@@ -1,0 +1,548 @@
+/* amrita.town.css — canonical brand stylesheet for the amrita.town webring */
+/* purpose: one drop-in stylesheet for amrita.town, clubs.amrita.town, and every future town project. */
+/* canonical: this file is the single source of truth for brand styles. */
+/* extracted from amrita.town/src/style.css and clubs.amrita.town/src/styles/geometry.css et al. — see README.md and BRAND.md. */
+
+/* ---------------------------------------------------------------------------
+   tokens
+   --------------------------------------------------------------------------- */
+
+:root {
+	font-family: system-ui, monospace;
+	color-scheme: light dark;
+
+	/* light scheme */
+	--base: #faf7f0;
+	--text: #000000d0;
+	--secondary: #00000025;
+	--secondary-light: #767676;
+	--tertiary: #00000008;
+	--accent: #ae0c3e;
+
+	/* canonical layout vars */
+	--page-width: min(85%, 90ch);
+	--radius-sm: 0.2rem;
+	--radius-md: 0.5rem;
+	--line-height: 1.72;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--base: #181818;
+		--text: #ffffffe0;
+		--secondary: #ffffff30;
+		--secondary-light: #7a7a7a;
+		--tertiary: #ffffff09;
+		--accent: #e0527a;
+	}
+}
+
+@media (color-gamut: p3) {
+	:root {
+		--accent: oklch(52.63% 0.187 13.42);
+	}
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--accent: oklch(66.45% 0.2344 6.44);
+		}
+	}
+}
+
+/* ---------------------------------------------------------------------------
+   reset
+   --------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	background-clip: padding-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+}
+
+body {
+	background-color: var(--base);
+	color: var(--text);
+
+	line-height: var(--line-height);
+	margin: 2rem auto;
+	width: var(--page-width);
+	text-transform: lowercase;
+}
+
+button {
+	font-family: inherit;
+}
+
+/* ---------------------------------------------------------------------------
+   inline
+   --------------------------------------------------------------------------- */
+
+p {
+	margin-block-end: 1rem;
+}
+
+a {
+	color: var(--accent);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 600;
+	line-height: 1.25;
+	margin-block: 0.66em;
+}
+
+small {
+	font-size: 0.85rem;
+	line-height: 1rem;
+}
+
+h1 {
+	font-size: 2.4rem;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+h3 {
+	font-size: 1.6rem;
+}
+
+h4 {
+	font-size: 1.5rem;
+}
+
+h5 {
+	font-size: 1.35rem;
+}
+
+h6 {
+	font-size: 1.15rem;
+}
+
+kbd {
+	border: 1px solid var(--text);
+	border-radius: var(--radius-sm);
+	padding: 1px 4px;
+	font-family: monospace;
+}
+
+pre {
+	margin: 1rem 0;
+}
+
+:not(pre) > code {
+	background-color: var(--tertiary);
+	padding: 0.2rem 0.4rem;
+	border: 1px solid var(--secondary);
+	border-radius: var(--radius-sm);
+}
+
+.astro-code {
+	border: 1px solid var(--secondary);
+	border-radius: var(--radius-sm);
+	padding: 0.5rem 0.8rem;
+}
+
+@media (prefers-color-scheme: dark) {
+	.astro-code,
+	.astro-code span {
+		color: var(--shiki-dark) !important;
+		background-color: var(--shiki-dark-bg) !important;
+		/* Optional, if you also want font styles */
+		font-style: var(--shiki-dark-font-style) !important;
+		font-weight: var(--shiki-dark-font-weight) !important;
+		text-decoration: var(--shiki-dark-text-decoration) !important;
+	}
+}
+
+/* ---------------------------------------------------------------------------
+   block
+   --------------------------------------------------------------------------- */
+
+ul,
+ol {
+	margin-inline-start: 1.5rem;
+}
+
+ul li,
+ol li {
+	margin-block: 0.8rem;
+}
+
+strong {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+tr:nth-child(even) {
+	background-color: var(--tertiary);
+}
+
+td,
+th {
+	border: 1px solid var(--secondary);
+	padding: 0.5rem;
+	text-align: center;
+}
+
+blockquote {
+	margin-left: 0.5rem;
+	border-left: 2px solid var(--secondary);
+	font-style: italic;
+	padding-inline-start: 0.5rem;
+}
+
+hr {
+	border: 1px solid var(--secondary);
+}
+
+div.card,
+details {
+	background-color: var(--tertiary);
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--secondary);
+	border-radius: var(--radius-sm);
+}
+
+details[open] > summary {
+	margin-bottom: 0.5rem;
+}
+
+/* ---------------------------------------------------------------------------
+   components — webring members (amrita.town)
+   --------------------------------------------------------------------------- */
+
+.member-list {
+	--x-padding: 0.75rem;
+	margin: 0 calc(var(--x-padding) * -1);
+	line-height: 1.5;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+	justify-content: space-between;
+}
+
+.member-container {
+	padding: 0.75rem var(--x-padding);
+	border-radius: var(--radius-sm);
+	color: var(--text);
+	text-decoration: none;
+	display: flex;
+	gap: 0.5rem;
+}
+
+.member-container p {
+	margin: 0;
+}
+
+.member-container:hover {
+	background-color: var(--tertiary);
+	outline: 1px solid var(--secondary);
+}
+
+.member-container:hover .name {
+	text-decoration: underline;
+}
+
+.name {
+	font-weight: 600;
+	color: var(--accent);
+}
+
+.icon-container {
+	width: 32px;
+	height: 32px;
+	background-color: var(--tertiary);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.favicon {
+	width: 16px;
+	height: 16px;
+	image-rendering: pixelated;
+}
+
+/* ---------------------------------------------------------------------------
+   components — webring posts (amrita.town)
+   --------------------------------------------------------------------------- */
+
+.post-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.post-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+}
+
+.post-title {
+	width: 100%;
+	color: var(--accent);
+	text-decoration: none;
+}
+
+.post-title:hover {
+	text-decoration: underline;
+}
+
+.post-author {
+	color: var(--secondary-light);
+}
+
+.post-date {
+	color: var(--secondary-light);
+}
+
+.show-desktop {
+	display: none;
+}
+
+@media (min-width: 600px) {
+	.post-title {
+		width: auto;
+	}
+
+	.post-date {
+		margin-left: auto;
+	}
+
+	.interpunct-mobile {
+		display: none;
+	}
+
+	.show-desktop {
+		display: inline;
+	}
+}
+
+/* ---------------------------------------------------------------------------
+   components — clubs grid (clubs.amrita.town)
+   --------------------------------------------------------------------------- */
+
+.clubs-grid {
+	--x-padding: 1rem;
+	--card-width: 320px;
+	--grid-gap: 1rem;
+	--max-columns: 3;
+	display: grid;
+	grid-template-columns: repeat(
+		auto-fill,
+		minmax(min(100%, var(--card-width)), 1fr)
+	);
+	justify-content: center;
+	gap: var(--grid-gap);
+	width: 100%;
+}
+
+.club-container {
+	width: 100%;
+	height: 90px;
+	background-color: var(--tertiary);
+	padding: 0.75rem var(--x-padding);
+	border-radius: var(--radius-md);
+	color: var(--text);
+	text-decoration: none;
+	display: flex;
+	gap: 0.5rem;
+	overflow: hidden;
+}
+
+.club-container:hover {
+	background-color: var(--tertiary);
+	outline: 1px solid var(--secondary);
+}
+
+.club-info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.1rem;
+	flex: 1;
+}
+
+.club-info p {
+	margin: 0;
+	white-space: normal;
+	word-break: break-word;
+}
+
+.club-actions {
+	display: flex;
+	gap: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.club-actions a,
+.club-actions button {
+	font-size: 0.75rem;
+	padding: 0.2rem 0.5rem;
+	border-radius: var(--radius-sm);
+	border: 1px solid var(--secondary);
+	background: var(--tertiary);
+	color: var(--text);
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.club-favicon {
+	height: 67px;
+	width: 67px;
+	image-rendering: pixelated;
+}
+
+/* ---------------------------------------------------------------------------
+   components — filters (clubs.amrita.town)
+   --------------------------------------------------------------------------- */
+
+.filter-group {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.filter-btn {
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--secondary);
+	background: var(--base);
+	color: var(--text);
+	cursor: pointer;
+	border-radius: var(--radius-md);
+	transition: all 0.2s;
+	font-size: 0.95rem;
+	font-weight: 600;
+}
+
+.filter-btn:hover {
+	background: var(--secondary);
+}
+
+.filter-btn.active {
+	background: var(--accent);
+	color: var(--base);
+	border-color: var(--accent);
+}
+
+.filter-select {
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--secondary);
+	background: var(--base);
+	color: var(--text);
+	cursor: pointer;
+	border-radius: var(--radius-md);
+	transition: all 0.2s;
+	font-size: 0.95rem;
+	font-weight: 600;
+	font-family: inherit;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='var(--text)' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 0.75rem center;
+	background-size: 1rem;
+	padding-right: 2.5rem;
+}
+
+.filter-select:hover {
+	background-color: var(--tertiary);
+}
+
+.filter-select:focus {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+
+.desktop-filters {
+	display: flex;
+}
+
+.mobile-filters {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.desktop-filters {
+		display: none !important;
+	}
+	.mobile-filters {
+		display: flex !important;
+		gap: 1.5rem !important;
+	}
+}
+
+/* ---------------------------------------------------------------------------
+   components — club page (clubs.amrita.town)
+   --------------------------------------------------------------------------- */
+
+.club-page {
+	--accent: light-dark(var(--accent-light), var(--accent-dark));
+	max-width: 80ch;
+	margin: 2rem auto;
+	padding: 2rem;
+	border-radius: var(--radius-md);
+	position: relative;
+}
+
+.club-page h1 {
+	color: var(--accent);
+}
+
+.back-button {
+	display: inline-block;
+	margin-bottom: 2rem;
+	text-decoration: none;
+	color: var(--text);
+	opacity: 0.8;
+}
+
+.back-button:hover {
+	opacity: 1;
+}
+
+.location {
+	margin: 0;
+	opacity: 0.9;
+}
+
+.links {
+	width: 100%;
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-columns: repeat(auto-fit, minmax(16ch, 1fr));
+	gap: 1rem 3rem;
+}
+
+.label {
+	margin: 0;
+	line-height: 1;
+	color: var(--secondary-light);
+}
+
+.links a:hover {
+	border-bottom-color: var(--accent);
+}

@@ -1,0 +1,88 @@
+/* quests.amrita.town — local components */
+/* built on the canonical tokens from amrita.town.css only. */
+/* purpose: quest cards and the page header, nothing else. */
+
+/* page header */
+.quest-header {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-block-end: 0.5rem;
+}
+
+.quest-header h1 {
+	margin: 0;
+}
+
+.quest-logo {
+	width: 64px;
+	height: 64px;
+	image-rendering: pixelated;
+}
+
+.tagline {
+	margin: 0;
+	color: var(--secondary-light);
+}
+
+/* quest cards */
+.quest-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 32ch), 1fr));
+	gap: 1rem;
+	margin-block: 1rem 2rem;
+}
+
+.quest-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 1rem;
+}
+
+.quest-card h3 {
+	margin: 0;
+}
+
+.quest-blurb {
+	margin: 0;
+}
+
+.quest-blurb p {
+	margin: 0;
+}
+
+.quest-meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: auto;
+	padding-top: 0.25rem;
+}
+
+.chip {
+	font-size: 0.75rem;
+	line-height: 1.2;
+	padding: 0.15rem 0.5rem;
+	border: 1px solid var(--secondary);
+	border-radius: var(--radius-sm);
+	background-color: var(--tertiary);
+	color: var(--secondary-light);
+}
+
+.chip.unclaimed {
+	color: var(--accent);
+	border-color: var(--accent);
+	font-weight: 600;
+}
+
+/* footer */
+.quest-footer {
+	margin-top: 2rem;
+	text-align: center;
+}
+
+.quest-footer p {
+	margin: 0;
+}
