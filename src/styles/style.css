@@ -228,6 +228,14 @@ details[open] > summary {
 }
 
 /* ---------------------------------------------------------------------------
+   banned components: no pills. no chips. no badges. no tags.
+   the brand has no status-pill or tag component. status and category
+   appear as plain text or plain links. do not add chip, pill, badge, or
+   tag classes to this sheet; `bun scripts/check.ts classes` fails when
+   one appears in amrita.town.css or demo.html.
+   --------------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------------
    components — webring members (amrita.town)
    --------------------------------------------------------------------------- */
 
