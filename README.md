@@ -11,7 +11,8 @@ The site is one page with two sections:
 - **completed quests** — projects the community already shipped.
 
 Each quest is a markdown file in `src/quests`. The page renders every file.
-There is no other content source.
+There is no other content source. Every card shows a placeholder image until
+the quest gets a real one.
 
 ## stack
 
@@ -42,9 +43,8 @@ name: my-idea.amrita.town
 status: unclaimed
 order: 5
 repo: https://github.com/example/my-idea
+image: /my-idea.png
 ---
-
-one paragraph on what the quest is and why it matters.
 ```
 
 Frontmatter fields:
@@ -56,6 +56,12 @@ Frontmatter fields:
 | `order`  | yes      | sort order within its section                 |
 | `repo`   | no       | link to the repository, shown as `repo`       |
 | `site`   | no       | link to the live site, shown as `site`        |
+| `image`  | no       | path or url of the card image, 16:9           |
+
+Every card shows `/placeholder.svg` until the quest sets `image`. Put the
+image in `public/` and reference it with a leading slash, for example
+`/my-idea.png`. A 16:9 image works best; the card crops with `object-fit:
+cover`.
 
 `order` numbers do not need to be unique across sections. The sections sort
 independently.

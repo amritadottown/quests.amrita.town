@@ -8,6 +8,7 @@ const questsSchema = z.object({
 	order: z.number(),
 	repo: z.url().optional(),
 	site: z.url().optional(),
+	image: z.string().optional(),
 });
 
 const quests = defineCollection({

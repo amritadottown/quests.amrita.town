@@ -35,21 +35,21 @@ const completed = quests
 			</div>
 		</header>
 
-		<p>
-			quests are cool ideas that the amrita.town community wants to see built. they are
-			for the community, by the community — so anyone can pitch in, or get in touch to
-			work on one deeper.
-		</p>
-
 		<h2>unclaimed quests</h2>
 
 		<div class="quest-grid">
 			{unclaimed.map((q) => (
 				<div class="card quest-card">
+					<img
+						class="quest-img"
+						src={q.data.image ?? '/placeholder.svg'}
+						alt={q.data.image ? q.data.name : ''}
+						width="320"
+						height="180"
+						loading="lazy"
+					/>
 					<h3>{q.data.name}</h3>
-					<p class="quest-blurb">{q.body}</p>
 					<div class="quest-meta">
-						<span class="chip unclaimed">unclaimed</span>
 						{q.data.site && <a href={q.data.site}>site</a>}
 						{q.data.repo && <a href={q.data.repo}>repo</a>}
 					</div>
@@ -62,10 +62,16 @@ const completed = quests
 		<div class="quest-grid">
 			{completed.map((q) => (
 				<div class="card quest-card">
+					<img
+						class="quest-img"
+						src={q.data.image ?? '/placeholder.svg'}
+						alt={q.data.image ? q.data.name : ''}
+						width="320"
+						height="180"
+						loading="lazy"
+					/>
 					<h3>{q.data.name}</h3>
-					<p class="quest-blurb">{q.body}</p>
 					<div class="quest-meta">
-						<span class="chip completed">completed</span>
 						{q.data.site && <a href={q.data.site}>site</a>}
 						{q.data.repo && <a href={q.data.repo}>repo</a>}
 					</div>
