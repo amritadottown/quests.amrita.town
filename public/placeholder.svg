@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" shape-rendering="crispEdges">
-	<g transform="translate(80 10) scale(10)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" shape-rendering="crispEdges">
+	<g transform="translate(80 40) scale(10)">
 		<rect x="7" y="2" width="1" height="1" fill="#000000"/>
 		<rect x="5" y="3" width="1" height="1" fill="#000000"/>
 		<rect x="6" y="3" width="1" height="1" fill="#000000"/>

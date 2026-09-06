@@ -56,11 +56,11 @@ Frontmatter fields:
 | `order`  | yes      | sort order within its section                 |
 | `repo`   | no       | link to the repository, shown as `repo`       |
 | `site`   | no       | link to the live site, shown as `site`        |
-| `image`  | no       | path or url of the card image, 16:9           |
+| `image`  | no       | path or url of the card image, 4:3           |
 
 Every card shows `/placeholder.svg` until the quest sets `image`. Put the
 image in `public/` and reference it with a leading slash, for example
-`/my-idea.png`. A 16:9 image works best; the card crops with `object-fit:
+`/my-idea.png`. A 4:3 image works best; the card crops with `object-fit:
 cover`.
 
 `order` numbers do not need to be unique across sections. The sections sort
