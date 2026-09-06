@@ -1,5 +1,5 @@
 ---
-name: amrita.town
+name: amrita.town webring
 status: completed
 order: 1
 site: https://amrita.town

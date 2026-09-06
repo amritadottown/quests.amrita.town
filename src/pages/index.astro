@@ -48,11 +48,13 @@ const completed = quests
 						height="240"
 						loading="lazy"
 					/>
-					<h3>{q.data.name}</h3>
-					<div class="quest-meta">
-						{q.data.site && <a href={q.data.site}>site</a>}
-						{q.data.repo && <a href={q.data.repo}>repo</a>}
+					<div class="quest-title-row">
+						<h3>{q.data.name}</h3>
+						{q.data.repo && (
+							<a class="quest-btn" href={q.data.repo}>repo</a>
+						)}
 					</div>
+					{q.body && <p class="quest-blurb">{q.body}</p>}
 				</div>
 			))}
 		</div>

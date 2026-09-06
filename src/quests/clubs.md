@@ -1,5 +1,5 @@
 ---
-name: clubs.amrita.town
+name: clubs directory
 status: completed
 order: 2
 site: https://clubs.amrita.town

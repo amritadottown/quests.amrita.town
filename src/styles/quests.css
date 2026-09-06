@@ -55,6 +55,33 @@
 	image-rendering: pixelated;
 }
 
+.quest-title-row {
+	display: flex;
+	align-items: baseline;
+	gap: 0.5rem;
+}
+
+.quest-btn {
+	font-size: 0.8rem;
+	padding: 0.15rem 0.55rem;
+	border: 1px solid var(--secondary);
+	border-radius: var(--radius-sm);
+	background: var(--tertiary);
+	color: var(--text);
+	text-decoration: none;
+}
+
+.quest-btn:hover {
+	background: var(--secondary);
+	text-decoration: underline;
+}
+
+.quest-blurb {
+	margin: 0;
+	font-size: 0.95rem;
+	color: var(--secondary-light);
+}
+
 .quest-meta {
 	display: flex;
 	flex-wrap: wrap;
