@@ -1,8 +1,8 @@
 ---
-name: map.amrita.town
+name: map.nithitsuki.com
 status: unclaimed
 order: 1
-repo: https://github.com/nithitsuki/map.amrita.town
+repo: https://github.com/amritadottown/map.amrita.town
 image: /images/map.png
 ---
 

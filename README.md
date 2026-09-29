@@ -1,7 +1,7 @@
-# quests.amrita.town
+# quests.nithitsuki.com
 
 cool ideas that the [amrita.town](https://amrita.town) community wants to see
-built, for the community by the community. [https://quests.amrita.town](https://quests.amrita.town)
+built, for the community by the community. [https://quests.nithitsuki.com](https://quests.nithitsuki.com)
 
 ## what is inside
 
@@ -39,7 +39,7 @@ Create a file in `src/quests`, for example `src/quests/my-idea.md`:
 
 ```md
 ---
-name: my-idea.amrita.town
+name: my-idea.nithitsuki.com
 status: unclaimed
 order: 5
 repo: https://github.com/example/my-idea
